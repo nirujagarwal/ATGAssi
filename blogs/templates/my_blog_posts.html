@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog Posts</title>
+</head>
+<body>
+    <h1>My Blog Posts</h1>
+    <ul>
+        {% for post in blog_posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200">
+                <p>{{ post.summary|truncatewords:15 }}</p>
+                <a href="{% url 'blog_post_detail' post.id %}">Read More</a> | 
+               
+            </li>
+        {% empty %}
+            <li>No blog posts available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_blog_post' %}">Create New Post</a>
+    <a href="{% url 'blog_post_list' %}">Back to Blog Post List</a>
+</body>
+</html>

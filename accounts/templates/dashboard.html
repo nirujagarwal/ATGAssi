@@ -1,4 +1,3 @@
-<!-- accounts/templates/dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,18 @@
     <script>
         function redirectToLogin() {
             window.location.href = "{% url 'login' %}";
+        }
+
+        function redirectToCreateBlog() {
+            window.location.href = "{% url 'create_blog_post' %}";
+        }
+
+        function redirectToMyBlogs() {
+            window.location.href = "{% url 'my_blog_posts' %}";
+        }
+
+        function redirectToAllBlogs() {
+            window.location.href = "{% url 'blog_post_list' %}";
         }
     </script>
 </head>
@@ -24,7 +35,13 @@
     <h3>Address</h3>
     <p>{{ user.address_line1 }}, {{ user.city }}, {{ user.state }}, {{ user.pincode }}</p>
 
-    <!-- Button to redirect to the login page -->
+    {% if user.user_type == 'doctor' %}
+        <button onclick="redirectToCreateBlog()">Create Blog</button>
+        <button onclick="redirectToMyBlogs()">View My Blogs</button>
+    {% elif user.user_type == 'patient' %}
+        <button onclick="redirectToAllBlogs()">View All Blogs</button>
+    {% endif %}
+
     <button onclick="redirectToLogin()">Logout</button>
 </body>
 </html>
