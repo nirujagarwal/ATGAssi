@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog Post</title>
+</head>
+<body>
+    <h1>Create a New Blog Post</h1>
+    {% if user.user_type != 'doctor' %}
+        <p>You must be a doctor to create a blog post.</p>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields -->
+            <button type="submit">Create Blog Post</button>
+        </form>
+    {% endif %}
+    <a href="{% url 'my_blog_posts' %}">View My Blog Posts</a>
+    <a href="{% url 'blog_post_list' %}">Back to Blog Post List</a>
+</body>
+</html>

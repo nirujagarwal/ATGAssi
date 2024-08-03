@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
 
 
 # Application definition
@@ -92,8 +92,12 @@ WSGI_APPLICATION = 'healthapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'mydatabase',           
+        'USER': 'root',                 
+        'PASSWORD': 'Mysql@12',             
+        'HOST': 'localhost',                   
+        'PORT': '3306',                          
     }
 }
 
@@ -150,4 +154,3 @@ AUTH_USER_MODEL = 'accounts.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
