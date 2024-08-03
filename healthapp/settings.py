@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'healthapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'mydatabase',           
-        'USER': 'root',                 
+        'NAME': 'nirujagarwal$default',           
+        'USER': 'nirujagarwal',                 
         'PASSWORD': 'Mysql@12',             
-        'HOST': 'localhost',                   
+        'HOST': 'nirujagarwal.mysql.pythonanywhere-services.com',                   
         'PORT': '3306',                          
     }
 }
