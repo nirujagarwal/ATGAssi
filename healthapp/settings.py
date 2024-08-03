@@ -47,6 +47,7 @@ ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'accounts',
+    'blogs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
