@@ -43,7 +43,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 # DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
 
 
 # Application definition
