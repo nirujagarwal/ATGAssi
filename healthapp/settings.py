@@ -46,6 +46,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
