@@ -29,19 +29,17 @@ load_dotenv(env_path)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87'
-import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
-SERVICE_ACCOUNT_FILE = os.path.join(
-    BASE_DIR, 'appointments', 'client_secret_500191717141-53tqlkevi1u7gn3rurpultvmfqa3jr8i.apps.googleusercontent.com.json'
-)
+SERVICE_ACCOUNT_FILE = os.getenv('GOOGLE_SERVICE_ACCOUNT_FILE')
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -96,27 +94,27 @@ WSGI_APPLICATION = 'healthapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  
-#         'NAME': 'nirujagarwal$default',           
-#         'USER': 'nirujagarwal',                 
-#         'PASSWORD': 'Mysql@12',             
-#         'HOST': 'nirujagarwal.mysql.pythonanywhere-services.com',                   
-#         'PORT': '3306',                          
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'mydatabase',           
-        'USER': 'root',                 
+        'NAME': 'nirujagarwal$default',           
+        'USER': 'nirujagarwal',                 
         'PASSWORD': 'Mysql@12',             
-        'HOST': 'localhost',                   
+        'HOST': 'nirujagarwal.mysql.pythonanywhere-services.com',                   
         'PORT': '3306',                          
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  
+#         'NAME': 'mydatabase',           
+#         'USER': 'root',                 
+#         'PASSWORD': 'Mysql@12',             
+#         'HOST': 'localhost',                   
+#         'PORT': '3306',                          
+#     }
+# }
 
 
 # Password validation

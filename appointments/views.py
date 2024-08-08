@@ -8,12 +8,18 @@ from datetime import datetime, timedelta
 import pytz
 from django.conf import settings
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 def get_google_calendar_service():
     SCOPES = ['https://www.googleapis.com/auth/calendar']
-    SERVICE_ACCOUNT_FILE = os.path.join(
-    settings.BASE_DIR, 'appointments', 'client_secret_500191717141-53tqlkevi1u7gn3rurpultvmfqa3jr8i.apps.googleusercontent.com.json'
-)
+    env_path = load_dotenv(os.path.join(BASE_DIR, '.env'))
+    load_dotenv(env_path)
+    SERVICE_ACCOUNT_FILE = os.getenv('GOOGLE_SERVICE_ACCOUNT_FILE')
+
 
     credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
