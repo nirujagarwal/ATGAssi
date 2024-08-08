@@ -40,6 +40,9 @@
         <button onclick="redirectToMyBlogs()">View My Blogs</button>
     {% elif user.user_type == 'patient' %}
         <button onclick="redirectToAllBlogs()">View All Blogs</button>
+        <a href="{% url 'doctor_list' %}">
+            <button>Make Appointment</button>
+        </a>        
     {% endif %}
 
     <button onclick="redirectToLogin()">Logout</button>

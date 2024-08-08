@@ -31,16 +31,20 @@ load_dotenv(env_path)
 # SECRET_KEY = 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87'
 import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
+SERVICE_ACCOUNT_FILE = os.path.join(
+    BASE_DIR, 'appointments', 'client_secret_500191717141-53tqlkevi1u7gn3rurpultvmfqa3jr8i.apps.googleusercontent.com.json'
+)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +52,7 @@ ALLOWED_HOSTS = ['nirujagarwal.pythonanywhere.com']
 INSTALLED_APPS = [
     'accounts',
     'blogs',
+    'appointments',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -91,13 +96,24 @@ WSGI_APPLICATION = 'healthapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  
+#         'NAME': 'nirujagarwal$default',           
+#         'USER': 'nirujagarwal',                 
+#         'PASSWORD': 'Mysql@12',             
+#         'HOST': 'nirujagarwal.mysql.pythonanywhere-services.com',                   
+#         'PORT': '3306',                          
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'nirujagarwal$default',           
-        'USER': 'nirujagarwal',                 
+        'NAME': 'mydatabase',           
+        'USER': 'root',                 
         'PASSWORD': 'Mysql@12',             
-        'HOST': 'nirujagarwal.mysql.pythonanywhere-services.com',                   
+        'HOST': 'localhost',                   
         'PORT': '3306',                          
     }
 }
@@ -127,7 +143,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True
 
 USE_I18N = True
 
